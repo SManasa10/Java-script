@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Countdown Timer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body onload="() => {}" class="bg-whitw-900 text-white flex justify-center items-center min-h-screen">
+  <div class="text-center bg-gray-800 px-8 py-6 rounded-xl shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">Special Offer Ends In:</h1>
+    <div id="countdown" class="text-3xl font-mono text-white-400"></div>
+  </div>
+
+  <script>
+
+(function () {
+  const countdown = document.getElementById("countdown");
+
+
+  const endTime = new Date();
+  endTime.setDate(endTime.getDate() + 3);
+
+  
+  function getTimeLeft() {
+    const now = new Date();
+    const timeLeft = endTime - now;
+
+    if (timeLeft <= 0) {
+      return "Offer expired!";
+    }
+
+    const totalSeconds = Math.floor(timeLeft / 1000);
+    const days = Math.floor(totalSeconds / 86400); 
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  setInterval(function () {
+    countdown.innerText = getTimeLeft();
+  }, 1000);
+})();
+
+  </script>
+</body>
+</html>

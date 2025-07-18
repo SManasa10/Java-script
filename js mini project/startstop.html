@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Start/Stop Timer</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-lg text-center w-full max-w-sm">
+    <h1 class="text-2xl font-bold mb-4">Session Timer</h1>
+    <div id="display" class="text-4xl font-mono text-blue-600 mb-6">0s</div>
+
+    <div class="flex justify-center gap-4">
+      <button onclick="startTimer(updateDisplay)" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+        Start
+      </button>
+      <button onclick="stopTimer()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">
+        Stop
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let timer = null;
+    let count = 0;
+
+
+    function showTime(sec) {
+    document.getElementById("display").innerText = sec + "s";
+    }
+function startTimer(callback) {
+  if (timer) return; 
+
+  timer = setInterval(() => {
+    callback(++count);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+  timer = null;
+}
+
+  </script>
+</body>
+</html>

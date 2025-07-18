@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Number Highlighter</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-6 rounded-xl shadow-md text-center w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4">Number Highlighter</h1>
+
+    <div class="flex gap-2 mb-4">
+      <input type="number" id="start" placeholder="Start" class="w-1/2 p-2 border rounded" />
+      <input type="number" id="end" placeholder="End" class="w-1/2 p-2 border rounded" />
+    </div>
+
+    <button onclick="startHighlight()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mb-4">
+      Start
+    </button>
+
+    <div id="output" class="flex flex-wrap justify-center gap-2 mt-4 text-lg font-mono"></div>
+  </div>
+
+  <script >
+    function highlight(num, end) {
+  if (num > end) return;
+
+  document.getElementById("output").innerHTML += `<span class="bg-yellow-300 text-black px-2 py-1 rounded mr-1">${num}</span>`;
+
+  setTimeout(() => highlight(num + 1, end), 1000);
+}
+
+function startHighlight() {
+  let start = +document.getElementById("start").value;
+  let end = +document.getElementById("end").value;
+  let output = document.getElementById("output");
+
+  output.innerHTML = "";
+
+  if (start > end || !start || !end) {
+    output.innerHTML = `<p class="text-red-500">Enter a valid range!</p>`;
+    return;
+  }
+
+  highlight(start, end);
+}
+
+  </script>
+</body>
+</html>
