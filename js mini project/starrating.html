@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timer Callback</title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>[]
+    <title>star Rating</title>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white p-6 rounded shadow w-full max-w-sm text-center">
-    <h2 class="text-xl font-bold mb-4">Start/Stop Timer</h2>
-    
-    <p id="display" class="text-2xl font-mono text-blue-600 mb-6">0s</p>
-
-    <div class="space-x-4">
-      <button onclick="handleStart()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-        Start
-      </button>
-      <button onclick="handleStop()" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-        Stop
-      </button>
-    <script>
-        let timer = null, seconds = 0;
-
-const update = val => document.getElementById("display").textContent = `${val}s`;
-
-const start = () => {
-  if (timer) return;
-  timer = setInterval(() => update(++seconds), 1000);
-};
-
-const stop = () => {
-  clearInterval(timer);
-  timer = null;
-};
-
-    </script>
+<body   class="bg-gray-700 min-h-screen flex justify-center items-center">
+     
+ <div>
+    <h2 class="text-2x1 mb-2 text-white"> Rate our service </h2>
+    <div id="rating" class="text-white text-xl font-bold-1" >
+        <button class="rate" onclick="rating(0)"><i class="fa-solid fa-star"></i></button>
+         <button class="rate" onclick="rating(1)"><i class="fa-solid fa-star"></i></button>
+          <button class="rate" onclick="rating(2)"><i class="fa-solid fa-star"></i></button>
+           <button class="rate" onclick="rating(3)"><i class="fa-solid fa-star"></i></button>
+            <button class="rate" onclick="rating(4)"><i class="fa-solid fa-star"></i></button>
     </div>
-  </div>
+ </div>
+ <script>
+    let rate=document.getElementsByClassName("rate");
+    function rating(n){
+        for(let i=0;i<rate.length;i++){
+            if(i<=n){
+                rate[i].style.color="gold";
+            }else{
+                rate[i].style.color="white";
+            }
+        }
+    } 
+
+
+
+ </script>
+
+
 </body>
 </html>
