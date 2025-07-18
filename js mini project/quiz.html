@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Quiz</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+ <div class="bg-white shadow-md rounded p-5 w-full max-w-md min-h-[500px] text-sm">
+
+    <h1 class="text-xl font-bold mb-4 text-blue-600 text-center">HTML Quiz</h1>
+
+
+    <!-- Question 1 -->
+    <div class="mb-3">
+      <p class="font-medium mb-1">1. What does HTML stand for?</p>
+      <label><input type="radio" name="q1" value="1" /> Hyper Text Markup Language</label><br>
+      <label><input type="radio" name="q1" value="0" /> HighText Machine Language</label><br>
+      <label><input type="radio" name="q1" value="0" /> Hyperlinks and Text Markup Language</label><br>
+      <label><input type="radio" name="q1" value="0" /> Home Tool Markup Language</label>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="mb-3">
+      <p class="font-medium mb-1">2. Which tag is used to create a hyperlink?</p>
+      <label><input type="radio" name="q2" value="1" /> &lt;a&gt;</label><br>
+      <label><input type="radio" name="q2" value="0" /> &lt;link&gt;</label><br>
+      <label><input type="radio" name="q2" value="0" /> &lt;href&gt;</label><br>
+      <label><input type="radio" name="q2" value="0" /> &lt;ul&gt;</label>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="mb-3">
+      <p class="font-medium mb-1">3. Which attribute is used to provide an image source?</p>
+      <label><input type="radio" name="q3" value="1" /> src</label><br>
+      <label><input type="radio" name="q3" value="0" /> href</label><br>
+      <label><input type="radio" name="q3" value="0" /> alt</label><br>
+      <label><input type="radio" name="q3" value="0" /> title</label>
+    </div>
+
+    <button onclick="submitQuiz()" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 mt-2">
+      Submit Quiz
+    </button>
+
+    <div id="result" class="mt-3 font-semibold text-sm"></div>
+  </div>
+</body>
+</html>
+
+    
+  <script>
+    
+function getAnswer(name) {
+  const options = document.getElementsByName(name);
+  for (let i = 0; i < options.length; i++) {
+    if (options[i].checked) {
+      return Number(options[i].value);
+    }
+  }
+  return 0; 
+}
+
+
+function calculateScore(callback) {
+  const score = getAnswer("q1") + getAnswer("q2") + getAnswer("q3");
+  callback(score);
+}
+
+
+function submitQuiz() {
+  calculateScore(function (score) {
+    const result = document.getElementById("result");
+    result.textContent = `You scored ${score}/3`;
+    result.className =
+      "mt-4 font-semibold text-" +
+      (score === 3 ? "green" : score === 2 ? "yellow" : "red") +
+      "-500";
+  });
+}
+
+  </script>
+</body>
+</html>

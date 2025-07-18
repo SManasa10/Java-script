@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Animation</title>
+  <script src="script.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+  <div id="text" class="text-2xl font-mono text-blue-600 mb-4"></div>
+  <button onclick="startTyping()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Start Typing</button>
+</body>
+<script>
+    function typeMessage(msg, i, done) {
+  const text = document.getElementById("text");
+  if (i < msg.length) {
+    text.textContent += msg[i];
+    setTimeout(() => typeMessage(msg, i + 1, done), 100);
+  } else {
+    done();
+  }
+}
+
+function startTyping() {
+  const msg = "Typing animation with callback...";
+  const text = document.getElementById("text");
+  text.textContent = "";
+  typeMessage(msg, 0, () => text.textContent += "\n Done typing!");
+}
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Star Rating</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 gap-4">
+  <h1 class="text-xl font-semibold">Rate Us</h1>
+
+  <div id="stars" class="space-x-2 text-3xl">
+    <span id="star1" onclick="setRating(1)" class="cursor-pointer text-gray-400">★</span>
+    <span id="star2" onclick="setRating(2)" class="cursor-pointer text-gray-400">★</span>
+    <span id="star3" onclick="setRating(3)" class="cursor-pointer text-gray-400">★</span>
+    <span id="star4" onclick="setRating(4)" class="cursor-pointer text-gray-400">★</span>
+    <span id="star5" onclick="setRating(5)" class="cursor-pointer text-gray-400">★</span>
+  </div>
+
+  <p id="message" class="text-lg font-medium text-blue-600"></p>
+  <script>
+    function setRating(value) {
+  for (let i = 1; i <= 5; i++) {
+    document.getElementById("star" + i).className =
+      i <= value ? "text-yellow-400 cursor-pointer" : "text-gray-400 cursor-pointer";
+  }
+  document.getElementById("message").textContent = `You rated ${value} star${value > 1 ? "s" : ""}.`;
+}
+
+  </script>
+</body>
+</html>
