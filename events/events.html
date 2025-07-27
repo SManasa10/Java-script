@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click Event Practice</title>
+</head>
+<body>
+
+  <h2>Click the Button!</h2>
+  <button id="myButton">Click Me</button>
+
+  <script>
+    const button = document.getElementById("myButton");
+
+   button.addEventListener("click", function() {
+      console.log("clicked once");
+   })
+     button.addEventListener("dblclick", function () {
+      console.log("Double Click detected!")
+    })
+     
+    button.addEventListener("mouseover", function () {
+      
+     console.log("Mouse over");
+    });
+
+  
+    button.addEventListener("mouseout", function () {
+     console.log("Mouse event");
+    });
+  </script>
+
+</body>
+</html>
