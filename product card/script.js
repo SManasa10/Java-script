@@ -1,55 +1,60 @@
 const products = [
   {
-    image: "https://www.pexels.com/photo/pair-of-blue-lace-up-sneakers-19090",
+    image:"https://images.pexels.com/photos/19090/pexels-photo.jpg",
     name: "Shoes",
     discount: "30%",
     price: "₹1500",
     available: true,
   },
+  
+    
   {
-    image: "https://via.placeholder.com/150",
-    name: "Backpack",
-    discount: "30%",
-    price: "₹1500",
-    available: false,
-  },
+  image: "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg",
+  name: "Backpack",
+  discount: "30%",
+  price: "₹1500",
+  available: false,
+},
+
   {
-    image: "https://via.placeholder.com/150",
-    name: "Watch",
-    discount: "10%",
-    price: "₹2500",
-    available: true,
-  },
+  image: "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg",
+  name: "Watch",
+  discount: "10%",
+  price: "₹2500",
+  available: true
+},
+
   {
-    image: "https://via.placeholder.com/150",
+    image: "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg",
+
     name: "Sunglasses",
     discount: "25%",
     price: "₹1200",
     available: false,
   },
   {
-    image: "https://via.placeholder.com/150",
+    image: "https://images.pexels.com/photos/3721941/pexels-photo-3721941.jpeg",
     name: "Headphones",
     discount: "15%",
     price: "₹1800",
     available: true,
   },
   {
-    image: "https://via.placeholder.com/150",
+    image: "https://images.pexels.com/photos/8113002/pexels-photo-8113002.jpeg",
     name: "Jacket",
     discount: "40%",
     price: "₹3000",
     available: true,
   },
   {
-    image: "https://via.placeholder.com/150",
+    image: "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg",
     name: "T-shirt",
     discount: "35%",
     price: "₹800",
     available: false,
   },
   {
-    image: "https://via.placeholder.com/150",
+    image: "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg",
     name: "Jeans",
     discount: "20%",
     price: "₹1800",
@@ -71,7 +76,7 @@ function createCard(product) {
   `;
 }
 
-function renderCards() {
+function Cards() {
   const container = document.getElementById("card-container");
   let cardsHTML = "";
   for (let i = 0; i < products.length; i++) {
@@ -80,4 +85,4 @@ function renderCards() {
   container.innerHTML = cardsHTML;
 }
 
-window.onload = renderCards;
+window.onload = Cards;
