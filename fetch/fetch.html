@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Display One Product</title>
+</head>
+<body>
+  <h2>Product Info</h2>
+  <div id="product"></div>
+
+  <script>
+    fetch('https://dummyjson.com/products') 
+      .then(response => response.json())
+      .then(data =>console.log(data))
+      .catch(error=>console.log(error))
+        
+  </script>
+</body>
+</html>
