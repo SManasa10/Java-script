@@ -13,12 +13,12 @@
     fetch('https://dummyjson.com/carts')
       .then(response => response.json())
       .then(data => {
-        const cart = data.carts[2]; 
-        displayCart(cart);
+        const cart = data.carts[0]; 
+        Cart(cart);
       })
       .catch(error => console.log(error));
 
-    function displayCart(cart) {
+    function Cart(cart) {
       const container = document.getElementById('cardContainer');
 
       container.innerHTML = `
