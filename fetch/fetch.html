@@ -2,18 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Display One Product</title>
+  <title>Cart Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h2>Product Info</h2>
-  <div id="product"></div>
+<body class="bg-gray-100 p-6">
+
+  <div id="cardContainer" class="flex justify-center"></div>
 
   <script>
-    fetch('https://dummyjson.com/products') 
+    fetch('https://dummyjson.com/carts')
       .then(response => response.json())
-      .then(data =>console.log(data))
-      .catch(error=>console.log(error))
-        
+      .then(data => {
+        const cart = data.carts[2]; 
+        displayCart(cart);
+      })
+      .catch(error => console.log(error));
+
+    function displayCart(cart) {
+      const container = document.getElementById('cardContainer');
+
+      container.innerHTML = `
+        <div class="bg-white shadow-md rounded-lg p-6 w-80 border border-gray-200">
+          <h2 class="text-xl font-bold mb-2">Cart ID: ${cart.id}</h2>
+          <p class="text-gray-700 mb-1">Total Products: ${cart.totalProducts}</p>
+          <p class="text-gray-700 mb-1">Total Quantity: ${cart.totalQuantity}</p>
+          <p class="text-green-600 font-bold">Total Price: $${cart.total}</p>
+        </div>
+      `;
+    }
   </script>
+
 </body>
 </html>
+
+
+
+
+
+  
